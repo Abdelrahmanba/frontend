@@ -26,17 +26,20 @@ const SideNav = ({ selectedKeyMenu, setselectedSideMenu }) => {
         {selectedKeyMenu == '1' ? (
           <>
             {menuItems.map((title, index) => (
-              <>
-                <Menu.Item key={'d' + (1 + index)} icon={<EnvironmentOutlined />}>
-                  Destination
+              <SubMenu key={'q' + (1 + index) + 'c'} icon={<PieChartOutlined />} title={title}>
+                <Menu.Item key={'d' + (1 + index) + 'c'} icon={<EnvironmentOutlined />}>
+                  Miles Frequency
                 </Menu.Item>
-                <Menu.Item key={'o' + (1 + index)} icon={<EnvironmentOutlined />}>
-                  Origin
+                <Menu.Item key={'o' + (1 + index) + 'c'} icon={<EnvironmentOutlined />}>
+                  Frequency of flights
                 </Menu.Item>
-                <Menu.Item key={'p' + (1 + index)} icon={<DollarCircleOutlined />}>
+                <Menu.Item key={'p' + (1 + index) + 'c'} icon={<DollarCircleOutlined />}>
                   Profit
                 </Menu.Item>
-              </>
+                <Menu.Item key={'p' + (1 + index) + 'c'} icon={<DollarCircleOutlined />}>
+                  Miles travelled
+                </Menu.Item>
+              </SubMenu>
             ))}
           </>
         ) : (

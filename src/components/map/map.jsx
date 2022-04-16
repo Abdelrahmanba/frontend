@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { get } from '../../apiCalls'
 import USAMap from '../USAmap/USAmap'
 import './map.scss'
 import codes from '../../stateCodes.json'
@@ -32,7 +31,7 @@ const Map = ({ data, type }) => {
       }
       return (e['name'] = codes[e.OriginWac])
     })
-    console.log(data)
+   //console.log(data)
     const range = max - min
     const custm = {}
     data.forEach((e) => {
