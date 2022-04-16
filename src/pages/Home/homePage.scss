@@ -1,0 +1,49 @@
+.layout {
+  min-height: 100vh;
+  min-width: 100vw;
+  background-image: url('../../footer.svg');
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: 300px;
+
+  .map {
+    display: flex;
+    justify-content: center;
+  }
+}
+.header {
+  display: flex;
+  background-color: #457b9d;
+  .menu {
+    width: 80%;
+    background-color: transparent;
+  }
+
+  .logo {
+    flex-grow: 1;
+    color: #fff;
+    font-weight: 700;
+  }
+}
+.footer {
+  background-color: transparent;
+}
+.site-layout-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 70vh;
+  background-color: rgba(255, 255, 255, 0.7);
+  z-index: 1;
+  h1 {
+    font-weight: 700;
+    font-size: 32px;
+    padding: 0 50px 20px;
+  }
+}
+.inner-layout {
+  background-color: transparent;
+}
+.sider {
+  min-height: 70vh;
+}

@@ -1,0 +1,79 @@
+.home-page {
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #fbfef9;
+  .home-vector {
+    z-index: 0;
+    position: absolute;
+    top: 0;
+    background-image: url('./home.svg');
+    height: 100vh;
+    width: 100vw;
+    background-position: bottom right;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  .name {
+    display: flex;
+    gap: 10px;
+  }
+  section {
+    height: max-content;
+    z-index: 1;
+    padding-left: 100px;
+    position: relative;
+  }
+  h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 48px;
+    color: #1d3557;
+    margin-bottom: 20px;
+  }
+  h2 {
+    font-weight: 400;
+    color: #457b9d;
+  }
+  .btn-grp {
+    padding: 10px 0;
+    display: flex;
+    gap: 15px;
+  }
+  .sign {
+    opacity: 0;
+    position: absolute;
+    bottom: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+    &.sign-up {
+      position: static;
+      visibility: visible;
+      display: flex;
+      transition: all 0.3s ease-in-out;
+      opacity: 1;
+    }
+    &.sign-in {
+      position: static;
+      visibility: visible;
+      display: flex;
+      transition: all 0.3s ease-in-out;
+      opacity: 1;
+    }
+    justify-content: center;
+    flex-direction: column;
+    margin: 20px 0;
+    width: 350px;
+    .input,
+    .ant-picker {
+      border-radius: 50px;
+      padding: 7px 20px;
+      margin: 10px 0;
+    }
+    button.ant-btn {
+      margin: 10px 0;
+    }
+  }
+}
