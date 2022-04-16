@@ -56,7 +56,7 @@ const HomePage = () => {
                 <div className='map'>
                   <Map
                     data={data}
-                    type={selectedSideMenu[0] === 'p' ? 'profitsSum' : 'flightsFrequency'}
+                    type={(selectedSideMenu[0] === 'p') ? 'profitsSum' : 'flightsFrequency'}
                   />
                 </div>
               )}

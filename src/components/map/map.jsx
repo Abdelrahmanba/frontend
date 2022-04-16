@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { get } from '../../apiCalls'
 import USAMap from '../USAmap/USAmap'
 import './map.scss'
 import codes from '../../stateCodes.json'
@@ -24,23 +25,21 @@ const Map = ({ data, type }) => {
     let max = -1
     data.forEach((e) => {
       if (e[type] > max) {
-        max = e.profitsSum
+        max = e[type]
       }
       if (e[type] < min) {
         min = e[type]
       }
-      return (e['name'] = codes[e.OriginWac])
+      return (e['name'] = codes[e.state])
     })
-   //console.log(data)
     const range = max - min
     const custm = {}
     data.forEach((e) => {
       const percent = Math.round((e[type] / range) * 10)
-      //custm[e.name]['fill'] = colors[percent]
-     // custm[e.name][type] = e[type]
+      custm[e.name] = { fill: colors[percent], [type]: e[type] }
     })
-
     setcustomConfig(custm)
+    console.log(custm)
   }
 
   useEffect(() => {
