@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { get } from '../../apiCalls'
 import USAMap from '../USAmap/USAmap'
 import './map.scss'
 import codes from '../../stateCodes.json'

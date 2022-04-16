@@ -36,7 +36,7 @@ const SideNav = ({ selectedKeyMenu, setselectedSideMenu }) => {
                 <Menu.Item key={'p' + (1 + index) + 'c'} icon={<DollarCircleOutlined />}>
                   Profit
                 </Menu.Item>
-                <Menu.Item key={'p' + (1 + index) + 'c'} icon={<DollarCircleOutlined />}>
+                <Menu.Item key={'q' + (1 + index) + 'c'} icon={<DollarCircleOutlined />}>
                   Miles travelled
                 </Menu.Item>
               </SubMenu>
