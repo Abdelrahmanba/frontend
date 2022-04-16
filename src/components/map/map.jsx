@@ -37,12 +37,10 @@ const Map = ({ data, type }) => {
 
     data.forEach((e) => {
       const percent = Math.round((e[type] / range) * 9)
-      console.log(percent)
 
       custm[e.name] = { fill: colors[percent], [type]: e[type] }
     })
     setcustomConfig(custm)
-    console.log(custm)
   }
 
   useEffect(() => {
