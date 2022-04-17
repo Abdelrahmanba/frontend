@@ -18,13 +18,15 @@ const SideNav = ({ selectedKeyMenu, setselectedSideMenu }) => {
     <Sider className='sider' width={210}>
       <Menu
         mode='inline'
-        defaultOpenKeys={['q1']}
-        defaultSelectedKeys={['p1']}
+        defaultSelectedKeys={['cp']}
         style={{ height: '100%' }}
         onSelect={(e) => setselectedSideMenu(e.key)}
       >
         {selectedKeyMenu == '1' ? (
           <>
+            <Menu.Item key={"cp"} icon={<EnvironmentOutlined />}>
+              Company Profit
+            </Menu.Item>
             {menuItems.map((title, index) => (
               <SubMenu key={'q' + (1 + index) + 'c'} icon={<PieChartOutlined />} title={title}>
                 <Menu.Item key={'d' + (1 + index) + 'c'} icon={<EnvironmentOutlined />}>

@@ -7,6 +7,8 @@ import SideNav from '../../components/sideNav/sideNav'
 import { get } from '../../apiCalls'
 import { LoadingOutlined } from '@ant-design/icons'
 import { Select } from 'antd'
+import MilesFreq from '../../components/milesFreq/milesFreq'
+import FlightFreq from '../../components/FlightFreq/FlightFreq.js'
 
 import companyNames from '../../companyNames.json'
 import {
@@ -18,6 +20,7 @@ import {
   XAxis,
   YAxis,
 } from 'recharts'
+import CompanyProf from '../../components/companyProf/companyProf'
 
 const { Content, Footer } = Layout
 
@@ -30,17 +33,7 @@ const HomePage = () => {
   const [loading, setloading] = useState(false)
 
   const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />
-  const handleChange = async (v) => {
-    setloading(true)
 
-    const res = await get(`/company/${v}/${selectedSideMenu[1]}/miles`)
-    if (res.ok) {
-      const resJson = await res.json()
-      setdata(resJson)
-    }
-    setloading(false)
-
-  }
   useEffect(() => {
     setloading(true)
     let dataURL = '/state/' + selectedSideMenu[1]
@@ -71,7 +64,7 @@ const HomePage = () => {
         <div className='img' />
         <SideNav selectedKeyMenu={selectedKeyMenu} setselectedSideMenu={setselectedSideMenu} />
         <Content style={{ margin: 30 }}>
-          <Spin indicator={antIcon} spinning={false}>
+          <Spin indicator={antIcon} spinning={loading}>
             <div className='site-layout-content'>
               {selectedKeyMenu === '2' && (
                 <h1>
@@ -87,36 +80,13 @@ const HomePage = () => {
                 </div>
               )}
               {selectedKeyMenu === '1' && (
-                <div className='area'>
-                  <Select
-                    defaultValue={companyNames['WN']}
-                    style={{ width: 200 }}
-                    onChange={handleChange}
-                  >
-                    {Object.keys(companyNames).map((e) => (
-                      <Option value={e} key={e}>
-                        {companyNames[e]}
-                      </Option>
-                    ))}
-                  </Select>
-                  <AreaChart
-                    width={2000}
-                    height={600}
-                    data={data}
-                    margin={{
-                      top: 10,
-                      right: 30,
-                      left: 0,
-                      bottom: 0,
-                    }}
-                  >
-                    <CartesianGrid strokeDasharray='0' />
-                    <XAxis dataKey='Miles' />
-                    <YAxis />
-                    <Tooltip />
-                    <Area type='monotone' dataKey='MilesFreq' stroke='#8884d8' fill='#8884d8' />
-                  </AreaChart>
-                </div>
+                selectedSideMenu === 'd1c' && <MilesFreq selectedSideMenu={selectedSideMenu} data={data} setloading={setloading} setdata={setdata} />
+              )}
+              {selectedKeyMenu === '1' && (
+                selectedSideMenu === 'o1c' && <FlightFreq selectedSideMenu={selectedSideMenu} data={data} setloading={setloading} setdata={setdata} />
+              )}
+              {selectedKeyMenu === '1' && (
+                selectedSideMenu === 'cp' && <CompanyProf selectedSideMenu={selectedSideMenu} data={data} setloading={setloading} setdata={setdata} />
               )}
             </div>
           </Spin>
