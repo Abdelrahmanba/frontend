@@ -17,7 +17,7 @@ export const get = async (url, token = undefined) => {
 
 export const post = async (url, token = undefined, body) => {
   try {
-    const res = await fetch(process.env.REACT_APP_API + url, {
+    const res = await fetch(process.env.REACT_APP_API +url , {
       method: 'POST',
       headers: new Headers({
         'Content-Type': 'application/json',
@@ -27,7 +27,9 @@ export const post = async (url, token = undefined, body) => {
     })
     return res
   } catch (e) {
+    console.log(e)
     message.error('Something Wrong')
+
     return e
   }
 }

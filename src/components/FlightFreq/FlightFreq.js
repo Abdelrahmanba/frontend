@@ -17,6 +17,7 @@ function FlightFreq({ data, selectedSideMenu, setloading, setdata }) {
                 e.AirlineCompany = companyNames[e.AirlineCompany]
             });
             setdata(resJson)
+            console.log(data)
         }
         setloading(false)
 

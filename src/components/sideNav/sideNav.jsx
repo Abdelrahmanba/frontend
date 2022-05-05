@@ -38,35 +38,43 @@ const SideNav = ({ selectedKeyMenu, setselectedSideMenu }) => {
                 <Menu.Item key={'p' + (1 + index) + 'c'} icon={<DollarCircleOutlined />}>
                   Profit
                 </Menu.Item>
-                <Menu.Item key={'q' + (1 + index) + 'c'} icon={<DollarCircleOutlined />}>
+                <Menu.Item key={'u' + (1 + index) + 'c'} icon={<DollarCircleOutlined />}>
                   Miles travelled
                 </Menu.Item>
               </SubMenu>
             ))}
           </>
         ) : (
-          <>
-            {menuItems.map((title, index) => (
-              <SubMenu key={'q' + (1 + index)} icon={<PieChartOutlined />} title={title}>
-                <SubMenu
-                  key={'f' + (1 + index)}
-                  icon={<CompassOutlined />}
-                  title='Flights Per State'
-                >
-                  <Menu.Item key={'d' + (1 + index)} icon={<EnvironmentOutlined />}>
-                    Destination
-                  </Menu.Item>
-                  <Menu.Item key={'o' + (1 + index)} icon={<EnvironmentOutlined />}>
-                    Origin
-                  </Menu.Item>
-                </SubMenu>
-                <Menu.Item key={'p' + (1 + index)} icon={<DollarCircleOutlined />}>
-                  Profit
-                </Menu.Item>
-              </SubMenu>
-            ))}
+          <> {selectedKeyMenu == '3' ? (
+              menuItems.map((title, index) => (
+                  <SubMenu key={'q' + (1 + index)} icon={<PieChartOutlined />}title={title}>
+
+                      </SubMenu>
+
+                  ))
+          ) : (menuItems.map((title, index) => (
+                  <SubMenu key={'q' + (1 + index)} icon={<PieChartOutlined />} title={title}>
+                      <SubMenu
+                          key={'f' + (1 + index)}
+                          icon={<CompassOutlined />}
+                          title='Flights Per State'
+                      >
+                          <Menu.Item key={'d' + (1 + index)} icon={<EnvironmentOutlined />}>
+                              Destination
+                          </Menu.Item>
+                          <Menu.Item key={'o' + (1 + index)} icon={<EnvironmentOutlined />}>
+                              Origin
+                          </Menu.Item>
+                      </SubMenu>
+
+                      <Menu.Item key={'p' + (1 + index)} icon={<DollarCircleOutlined />}>
+                          Profit
+                      </Menu.Item>
+                  </SubMenu>
+              )))}
+
           </>
-        )}
+         )}
       </Menu>
     </Sider>
   )

@@ -24,7 +24,8 @@ const TopNav = ({ logo, setselectedKeyMenu }) => {
       >
         <Menu.Item key={1}>Companies</Menu.Item>
         <Menu.Item key={2}>States</Menu.Item>
-        <Menu.Item key={3} onClick={() => signOut()}>
+        <Menu.Item key={3}>Predict Company profit</Menu.Item>
+        <Menu.Item key={4} onClick={() => signOut()}>
           Sign Out
         </Menu.Item>
       </Menu>

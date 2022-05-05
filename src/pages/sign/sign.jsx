@@ -98,7 +98,7 @@ const Sign = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <DatePicker onChange={(dump, dateString) => setDateOfBirth(dateString)} />
+          <DatePicker placeholder='Date of Birth' onChange={(dump, dateString) => setDateOfBirth(dateString)} />
           <Button
             onClick={signUpSubmit}
             type='primary'

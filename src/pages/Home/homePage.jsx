@@ -4,22 +4,15 @@ import React, { useEffect, useState } from 'react'
 import Map from '../../components/map/map'
 import TopNav from '../../components/topnav/topnav'
 import SideNav from '../../components/sideNav/sideNav'
-import { get } from '../../apiCalls'
+import {get, post} from '../../apiCalls'
 import { LoadingOutlined } from '@ant-design/icons'
 import { Select } from 'antd'
 import MilesFreq from '../../components/milesFreq/milesFreq'
-import FlightFreq from '../../components/FlightFreq/FlightFreq.js'
+import FlightFreq from '../../components/FlightFreq/FlightFreq'
+import ProfitPerCompany  from '../../components/profit-per-company/Profit-per-company'
+import MilesTravelled from "../../components/milestravelled/Milestravelled";
+import Predict from "../../components/Predict/Predict";
 
-import companyNames from '../../companyNames.json'
-import {
-  Area,
-  AreaChart,
-  CartesianGrid,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from 'recharts'
 import CompanyProf from '../../components/companyProf/companyProf'
 
 const { Content, Footer } = Layout
@@ -45,7 +38,10 @@ const HomePage = () => {
     }
     if (selectedSideMenu[0] === 'd') {
       dataURL += '/dest/flights-per-state'
+    }else{
+
     }
+
     const getData = async () => {
       const res = await get(dataURL)
       if (res.ok) {
@@ -66,6 +62,11 @@ const HomePage = () => {
         <Content style={{ margin: 30 }}>
           <Spin indicator={antIcon} spinning={loading}>
             <div className='site-layout-content'>
+              {
+                selectedKeyMenu === '3' && (
+                    <Predict setloading={setloading}  />
+                )
+              }
               {selectedKeyMenu === '2' && (
                 <h1>
                   {num[selectedSideMenu[0]] + ' in the ' + num[selectedSideMenu[1]] + ' Quarter'}
@@ -87,6 +88,12 @@ const HomePage = () => {
               )}
               {selectedKeyMenu === '1' && (
                 selectedSideMenu === 'cp' && <CompanyProf selectedSideMenu={selectedSideMenu} data={data} setloading={setloading} setdata={setdata} />
+              )}
+              {selectedKeyMenu === '1' && (
+                 selectedSideMenu === 'p1c' && <ProfitPerCompany selectedSideMenu={selectedSideMenu} data={data} setloading={setloading} setdata={setdata} />
+              )}
+              {selectedKeyMenu === '1' && (
+                  selectedSideMenu === 'u1c' && <MilesTravelled selectedSideMenu={selectedSideMenu} data={data} setloading={setloading} setdata={setdata} />
               )}
             </div>
           </Spin>
