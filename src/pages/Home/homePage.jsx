@@ -38,8 +38,9 @@ const HomePage = () => {
     }
     if (selectedSideMenu[0] === 'd') {
       dataURL += '/dest/flights-per-state'
-    }else{
-
+    }
+    if (selectedSideMenu[0] === 'y') {
+      dataURL += '/dest/flights-per-state'
     }
 
     const getData = async () => {
@@ -81,19 +82,58 @@ const HomePage = () => {
                 </div>
               )}
               {selectedKeyMenu === '1' && (
+                  selectedSideMenu === 'cp' && <CompanyProf selectedSideMenu={selectedSideMenu} data={data} setloading={setloading} setdata={setdata} />
+              )}
+              {selectedKeyMenu === '1' && (
                 selectedSideMenu === 'd1c' && <MilesFreq selectedSideMenu={selectedSideMenu} data={data} setloading={setloading} setdata={setdata} />
               )}
               {selectedKeyMenu === '1' && (
                 selectedSideMenu === 'o1c' && <FlightFreq selectedSideMenu={selectedSideMenu} data={data} setloading={setloading} setdata={setdata} />
               )}
               {selectedKeyMenu === '1' && (
-                selectedSideMenu === 'cp' && <CompanyProf selectedSideMenu={selectedSideMenu} data={data} setloading={setloading} setdata={setdata} />
+                 selectedSideMenu === 'p1c' && <ProfitPerCompany selectedSideMenu={selectedSideMenu} setloading={setloading}  />
               )}
               {selectedKeyMenu === '1' && (
-                 selectedSideMenu === 'p1c' && <ProfitPerCompany selectedSideMenu={selectedSideMenu} data={data} setloading={setloading} setdata={setdata} />
+                  selectedSideMenu === 'y1c' && <MilesTravelled selectedSideMenu={selectedSideMenu} setloading={setloading}  />
+              )}
+
+              {selectedKeyMenu === '1' && (
+                  selectedSideMenu === 'd2c' && <MilesFreq selectedSideMenu={selectedSideMenu} data={data} setloading={setloading} setdata={setdata} />
               )}
               {selectedKeyMenu === '1' && (
-                  selectedSideMenu === 'u1c' && <MilesTravelled selectedSideMenu={selectedSideMenu} data={data} setloading={setloading} setdata={setdata} />
+                  selectedSideMenu === 'o2c' && <FlightFreq selectedSideMenu={selectedSideMenu} data={data} setloading={setloading} setdata={setdata} />
+              )}
+              {selectedKeyMenu === '1' && (
+                  selectedSideMenu === 'p2c' && <ProfitPerCompany selectedSideMenu={selectedSideMenu} setloading={setloading}  />
+              )}
+              {selectedKeyMenu === '1' && (
+                  selectedSideMenu === 'y2c' && <MilesTravelled selectedSideMenu={selectedSideMenu} setloading={setloading}  />
+              )}
+
+              {selectedKeyMenu === '1' && (
+                  selectedSideMenu === 'd3c' && <MilesFreq selectedSideMenu={selectedSideMenu} data={data} setloading={setloading} setdata={setdata} />
+              )}
+              {selectedKeyMenu === '1' && (
+                  selectedSideMenu === 'o3c' && <FlightFreq selectedSideMenu={selectedSideMenu} data={data} setloading={setloading} setdata={setdata} />
+              )}
+              {selectedKeyMenu === '1' && (
+                  selectedSideMenu === 'p3c' && <ProfitPerCompany selectedSideMenu={selectedSideMenu} setloading={setloading}  />
+              )}
+              {selectedKeyMenu === '1' && (
+                  selectedSideMenu === 'y3c' && <MilesTravelled selectedSideMenu={selectedSideMenu} setloading={setloading}  />
+              )}
+
+              {selectedKeyMenu === '1' && (
+                  selectedSideMenu === 'd4c' && <MilesFreq selectedSideMenu={selectedSideMenu} data={data} setloading={setloading} setdata={setdata} />
+              )}
+              {selectedKeyMenu === '1' && (
+                  selectedSideMenu === 'o4c' && <FlightFreq selectedSideMenu={selectedSideMenu} data={data} setloading={setloading} setdata={setdata} />
+              )}
+              {selectedKeyMenu === '1' && (
+                  selectedSideMenu === 'p4c' && <ProfitPerCompany selectedSideMenu={selectedSideMenu} setloading={setloading}  />
+              )}
+              {selectedKeyMenu === '1' && (
+                  selectedSideMenu === 'y4c' && <MilesTravelled selectedSideMenu={selectedSideMenu} setloading={setloading}  />
               )}
             </div>
           </Spin>
