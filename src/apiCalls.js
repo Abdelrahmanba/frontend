@@ -5,9 +5,9 @@ export const get = async (url, token = undefined) => {
     const res = await fetch(process.env.REACT_APP_API + url, {
       headers: new Headers({
         Authorization:
-          'Bearer ' + localStorage.getItem('user')
-            ? JSON.parse(localStorage.getItem('user')).token
-            : '',
+        'Bearer ' + ((localStorage.getItem('user') != null)
+          ? JSON.parse(localStorage.getItem('user')).token
+          : ''),
         Accept: 'application/json',
       }),
     })
@@ -25,9 +25,9 @@ export const post = async (url, token = undefined, body) => {
       headers: new Headers({
         'Content-Type': 'application/json',
         Authorization:
-          'Bearer ' + localStorage.getItem('user')
+          'Bearer ' + ((localStorage.getItem('user') != null)
             ? JSON.parse(localStorage.getItem('user')).token
-            : '',
+            : ''),
       }),
       body: JSON.stringify(body),
     })
