@@ -41,7 +41,7 @@ const Predict =()=> {
                                     ...prevConfig,
                                     title: (<h2>2018 Airplane Flights</h2>
                                     ),
-                                    content: <p style={{fontSize: 20}}>The price for Airline Company {AirlineCompany} from Origin {Origin} to Destination {Destination} is <span style={{fontSize:22}}>{resJSON.prediction.toFixed(2) }$</span></p>,
+                                    content: <h2 style={{fontSize: 20}}>The price for Airline Company {AirlineCompany} from Origin {Origin} to Destination {Destination} is <span style={{fontSize:22}}>{resJSON.prediction.toFixed(2) }$</span></h2>,
                                 }));
                             } else {
                                 message.error('make sure to fill all fields')

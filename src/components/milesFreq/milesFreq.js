@@ -25,9 +25,16 @@ function MilesFreq({ data, selectedSideMenu, setloading, setdata }) {
 
     }
     console.log(selectedSideMenu)
+    const num = {
+        1: 'First',
+        2: 'Second',
+        3: 'Third',
+        4: 'Forth',
+        d: 'Miles Per Company ',
+    }
     return (
         <div className='area'>
-
+            <h2>{num[selectedSideMenu[0]] } in the { num[selectedSideMenu[1]]}  Quarter</h2>
             <Select
                 defaultValue={companyNames['WN']}
                 style={{ width: 200, paddingBottom: 10 }}

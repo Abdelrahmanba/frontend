@@ -22,9 +22,16 @@ function FlightFreq({ data, selectedSideMenu, setloading, setdata }) {
         setloading(false)
 
     }
+    const num = {
+        1: 'First',
+        2: 'Second',
+        3: 'Third',
+        4: 'Forth',
+        o: 'Flights Per Company ',
+    }
     return (
         <div className='bar'>
-
+            <h2>{num[selectedSideMenu[0]] } in the { num[selectedSideMenu[1]]}  Quarter</h2>
             <BarChart width={1000} height={250} data={data}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="AirlineCompany" />
