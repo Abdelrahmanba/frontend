@@ -4,7 +4,10 @@ export const get = async (url, token = undefined) => {
   try {
     const res = await fetch(process.env.REACT_APP_API + url, {
       headers: new Headers({
-        ...(token && { Authorization: 'Bearer ' + token }),
+        Authorization:
+          'Bearer ' + localStorage.getItem('user')
+            ? JSON.parse(localStorage.getItem('user')).token
+            : '',
         Accept: 'application/json',
       }),
     })
@@ -17,11 +20,14 @@ export const get = async (url, token = undefined) => {
 
 export const post = async (url, token = undefined, body) => {
   try {
-    const res = await fetch(process.env.REACT_APP_API +url , {
+    const res = await fetch(process.env.REACT_APP_API + url, {
       method: 'POST',
       headers: new Headers({
         'Content-Type': 'application/json',
-        ...(token && { Authorization: 'Bearer ' + token }),
+        Authorization:
+          'Bearer ' + localStorage.getItem('user')
+            ? JSON.parse(localStorage.getItem('user')).token
+            : '',
       }),
       body: JSON.stringify(body),
     })
