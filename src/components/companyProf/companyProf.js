@@ -11,7 +11,7 @@ const { Option } = Select
 
 function CompanyProf({ data, selectedSideMenu, setloading, setdata }) {
     useEffect(() => {
-        handleChange(companyNames['WN'])
+        handleChange('WN')
     }, [])
     const handleChange = async (v) => {
         setloading(true)
@@ -19,7 +19,11 @@ function CompanyProf({ data, selectedSideMenu, setloading, setdata }) {
         const res = await get(`/company/${v}/profit`)
         if (res.ok) {
             const resJson = await res.json()
+            resJson.forEach(e => {
+                e.profit =  e.profit / 1000 ;
+            });
             setdata(resJson)
+            console.log(data)
         }
         setloading(false)
 
@@ -40,9 +44,9 @@ function CompanyProf({ data, selectedSideMenu, setloading, setdata }) {
                 ))}
             </Select>
 
-            <div className='bar'>
+            <div className='bar' style={{marginLeft:20}}>
 
-                <BarChart width={1000} height={250} data={data}>
+                <BarChart width={800} height={500} data={data}>
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="Quarter" />
                     <YAxis />

@@ -5,7 +5,7 @@ import '../../pages/sign/sign.scss'
 
 import {post} from '../../apiCalls'
 
-const Predict =()=> {
+function Predict ({setloading}) {
 
     const [MktCoupons, setMktCoupons] = useState('')
     const [Origin, setOrigin] = useState('')
@@ -15,11 +15,10 @@ const Predict =()=> {
     const [NumTicketsOrdered, setNumTicketsOrdered] = useState('')
     const [AirlineCompany, setAirlineCompany] = useState('')
 
-
     const Postdata = async () => {
         try{
-
-                    const res = await post('/ticket/predict/', undefined,
+            setloading(true)
+            const res = await post('/ticket/predict/', undefined,
                         {
                             "MktCoupons":MktCoupons,
                             "Quarter": Quarter,
@@ -30,7 +29,7 @@ const Predict =()=> {
                             "AirlineCompany": AirlineCompany
                         })
 
-                                 const resJSON = await res.json()
+                            const resJSON = await res.json()
                             console.log(resJSON.prediction)
 
 
@@ -43,12 +42,15 @@ const Predict =()=> {
                                     ),
                                     content: <h2 style={{fontSize: 20}}>The price for Airline Company {AirlineCompany} from Origin {Origin} to Destination {Destination} is <span style={{fontSize:22}}>{resJSON.prediction.toFixed(2) }$</span></h2>,
                                 }));
+                                setloading(false)
                             } else {
                                 message.error('make sure to fill all fields')
+                                setloading(false)
+
                                 console.log("failed")
                             }
 
-            } catch (e) {
+        } catch (e) {
                 console.log(e)
             }
 
@@ -56,7 +58,7 @@ const Predict =()=> {
 
     return (
 
-                <div>
+                <div style={{paddingLeft:100}}>
 
                     <h1> Predicting prices of airline flights!</h1>
                     <div>

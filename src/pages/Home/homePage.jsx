@@ -59,13 +59,18 @@ const HomePage = () => {
       <TopNav logo={'Airplane Flights '} setselectedKeyMenu={setselectedKeyMenu} />
       <Layout className='inner-layout'>
         <div className='img' />
-        <SideNav selectedKeyMenu={selectedKeyMenu} setselectedSideMenu={setselectedSideMenu} />
+        {selectedKeyMenu === '1' && (
+            <SideNav selectedKeyMenu={selectedKeyMenu} setselectedSideMenu={setselectedSideMenu} />
+        )}
+        {selectedKeyMenu === '2' && (
+            <SideNav selectedKeyMenu={selectedKeyMenu} setselectedSideMenu={setselectedSideMenu} />
+        )}
         <Content style={{ margin: 30 }}>
           <Spin indicator={antIcon} spinning={loading}>
             <div className='site-layout-content'>
               {
                 selectedKeyMenu === '3' && (
-                    <Predict setloading={setloading}  />
+                    <Predict setloading={setloading} />
                 )
               }
               {selectedKeyMenu === '2' && (

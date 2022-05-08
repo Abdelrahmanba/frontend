@@ -25,6 +25,8 @@ const Sign = () => {
       password,
     })
     if (res.ok) {
+      message.info('You have registered correctly')
+
     } else {
       message.error('Something went wrong')
     }
@@ -37,10 +39,12 @@ const Sign = () => {
       email: emailSign,
       password: passwordSign,
     })
+
     if (res.ok) {
       const resJson = await res.json()
       localStorage.setItem('user', JSON.stringify(resJson))
       navigate('home')
+
     } else {
       message.error('Something went wrong')
     }

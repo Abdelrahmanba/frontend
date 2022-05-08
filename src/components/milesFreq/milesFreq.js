@@ -11,7 +11,7 @@ const { Option } = Select
 
 function MilesFreq({ data, selectedSideMenu, setloading, setdata }) {
     useEffect(() => {
-        handleChange(companyNames['WN'])
+        handleChange('WN')
     }, [])
     const handleChange = async (v) => {
         setloading(true)
@@ -33,11 +33,11 @@ function MilesFreq({ data, selectedSideMenu, setloading, setdata }) {
         d: 'Miles Per Company ',
     }
     return (
-        <div className='area'>
-            <h2>{num[selectedSideMenu[0]] } in the { num[selectedSideMenu[1]]}  Quarter</h2>
+        <div className='area' style={{marginLeft:20}}>
+            <h2 style={{marginLeft:50}}>{num[selectedSideMenu[0]] } in the { num[selectedSideMenu[1]]}  Quarter</h2>
             <Select
-                defaultValue={companyNames['WN']}
-                style={{ width: 200, paddingBottom: 10 }}
+                defaultValue={'WN'}
+                style={{ width: 200, paddingBottom: 10,marginLeft:60 }}
                 onChange={handleChange}
             >
                 {Object.keys(companyNames).map((e) => (
@@ -48,8 +48,8 @@ function MilesFreq({ data, selectedSideMenu, setloading, setdata }) {
             </Select>
 
             <AreaChart
-                width={1000}
-                height={600}
+                width={1100}
+                height={400}
                 data={data}
                 margin={{
                     top: 10,

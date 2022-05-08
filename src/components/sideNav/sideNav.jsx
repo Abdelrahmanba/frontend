@@ -18,7 +18,6 @@ const SideNav = ({ selectedKeyMenu, setselectedSideMenu }) => {
     <Sider className='sider' width={210}>
       <Menu
         mode='inline'
-        defaultSelectedKeys={['cp']}
         style={{ height: '100%' }}
         onSelect={(e) => setselectedSideMenu(e.key)}
       >

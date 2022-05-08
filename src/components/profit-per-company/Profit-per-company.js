@@ -17,6 +17,7 @@ function ProfitPerCompany({  selectedSideMenu, setloading }) {
             const resJson = await res.json()
             resJson.forEach(e => {
                 e.AirlineCompany = companyNames[e.AirlineCompany]
+                e.profitsSum = e.profitsSum / 1000;
             });
             settest(resJson)
             console.log(test)
@@ -32,13 +33,13 @@ function ProfitPerCompany({  selectedSideMenu, setloading }) {
         2: 'Second',
         3: 'Third',
         4: 'Forth',
-        d: 'Miles Per Company',
+        p: 'Profit Per Company',
     }
     return (
-        <div className={'bar'}>
-            <h2>{num[selectedSideMenu[0]] } in the { num[selectedSideMenu[1]]}  Quarter</h2>
+        <div className={'bar'} style={{marginLeft:20}}>
+            <h2 style={{marginLeft:50}}>{num[selectedSideMenu[0]] } in the { num[selectedSideMenu[1]]}  Quarter</h2>
 
-            <BarChart width={1000} height={250} data={test}>
+            <BarChart width={1000} height={500} data={test}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="AirlineCompany" />
                 <YAxis />
