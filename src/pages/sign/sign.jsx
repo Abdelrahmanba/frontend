@@ -54,7 +54,7 @@ const Sign = () => {
   return (
     <div className='home-page'>
       <section>
-        <h1>2018 Airplane Flights</h1>
+        <h1>US Flights Visualizer</h1>
         <h2>Predicting prices of airline flights!</h2>
         <div className='btn-grp'>
           <Button

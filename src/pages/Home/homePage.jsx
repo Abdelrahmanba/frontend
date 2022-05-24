@@ -143,7 +143,7 @@ const HomePage = () => {
             </div>
           </Spin>
           <Footer className='footer' style={{ textAlign: 'center' }}>
-            Advanced SE ©2021
+            Advanced SE ©2022
           </Footer>
         </Content>
       </Layout>
